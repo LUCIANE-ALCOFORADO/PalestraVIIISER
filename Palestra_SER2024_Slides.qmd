@@ -1,0 +1,705 @@
+---
+title: "Programação Aprimorada com R Utilizando Assistência Cognitiva Artificial"
+author: "Luciane F. Alcoforado - AFA"
+format:
+  revealjs: 
+    footer: "VIII Seminário Internacional de Estatística com R"
+    slide-number: true
+    transition: slide
+    title-slide-attributes: 
+      data-background-image: Fundo_Palestra1.png
+      logo: Sticker.jpg
+resources:
+  - demo.pdf
+editor: visual
+---
+
+##  {background-image="Fundo_Palestra.png"}
+
+**Pergunta**
+
+Como a assistência cognitiva artificial (ChatGPT) pode auxiliar um aprendiz a programar na linguagem R?
+
+Fornecerá respostas corretas?
+
+. . .
+
+![](images/7890cf677714eda7fb273d457cbb7e30.gif){fig-align="center"}
+
+## Sou... {background-image="Fundo_Palestra.png"}
+
+Professora Universitária há mais de 22 anos que procura difundir o uso da linguagem R no Brasil através projetos como o evento SER e publicações de livros, pacotes e aplicativos.
+
+. . .
+
+![](images/Sou.png){fig-align="center"}
+
+## Galeria de Livros Publicados {background-image="Fundo_Palestra.png"}
+
+De 2014 a 2024: . . .
+
+![](images/Livros.png){fig-align="center"}
+
+## Projetos de Extensão {background-image="Fundo_Palestra.png"}
+
+<https://www.estatisticacomr.uff.br>
+
+Publicações em site, canal youtube com produção de vídeos, rede social facebook.
+
+<https://www.ser.uff.br>
+
+Evento anual, publicação em site, canal youtube com produção de vídeos, redes sociais facebook e instagran, revista científica.
+
+<https://www.meetup.com/pt-BR/rladies-niteroi/>
+
+Encontros periódicos, colaboração na produção de vídeos, redes sociais facebook e instagran.
+
+## Pacotes Desenvolvidos em R {background-image="Fundo_Palestra.png"}
+
+<https://cran.r-project.org/web/packages/AHPWR/index.html>
+
+<https://cran.r-project.org/web/packages/MandalaR/index.html>
+
+<https://github.com/LUCIANE-ALCOFORADO/RouteR>
+
+## Aplicativos Shiny {background-image="Fundo_Palestra.png"}
+
+AFA- <https://lucianefalcoforado.shinyapps.io/Simplex_Formas/>
+
+AFA - <https://lucianefalcoforado.shinyapps.io/SimplexJourney-Grafico/>
+
+AFA - <https://lucianefalcoforado.shinyapps.io/Teste_Termos/>
+
+AFA/UFF/PPGEC - <https://lucianealcoforado.shinyapps.io/AHPWizaRd/>
+
+AFA - <https://lucianealcoforado.shinyapps.io/Mandala/>
+
+GET/UFF - <https://lucianealcoforado.shinyapps.io/CalculadoraAmostral/>
+
+## Retomando a Pergunta inicial {background-image="Fundo_Palestra.png"}
+
+Como a assistência cognitiva artificial (ChatGPT) pode auxiliar um aprendiz a programar na linguagem R?
+
+::::{.columns}
+:::{.column}
+
+![](images/chatgpt.gif){fig-align="center"}
+:::
+:::{.column}
+![](images/Programador.png){fig-align="center"}
+:::
+::::
+
+## Inteligência x Assistência {background-image="Fundo_Palestra.png" .smaller}
+
+::::{.columns}
+:::{.column}
+**Inteligência:** É a capacidade de compreender, aprender, raciocinar, tomar decisões e resolver problemas de forma adaptativa em um ambiente em constante mudança.
+
+**Inteligência Artificial (IA):** Refere-se à capacidade de máquinas ou sistemas computacionais executarem tarefas que normalmente exigiriam inteligência humana.
+
+**Assistência Cognitiva Artificial:** É uma aplicação específica da inteligência artificial que visa oferecer suporte e orientação a indivíduos humanos em suas atividades cognitivas e tarefas diárias.
+:::
+
+:::{.column}
+
+
+![](images/AssistenciaRobo.jpg){fig-align="center"}
+
+:::
+::::
+
+## Linguagem x R {.smaller background-image="Fundo_Palestra.png"}
+
+**Linguagem Natural:** É a forma de comunicação que os seres humanos utilizam para se expressar, seja falada ou escrita.
+
+**Linguagem de Programação:** É uma linguagem formal utilizada para escrever instruções que podem ser executadas por um computador.
+
+**Linguagem R:** É uma linguagem de programação de código aberto, fornecendo um ambiente de computação estatística, criada por Ross Ihaka e Robert Gentleman na década de 1990.
+
+![](images/Rlogo.png){fig-align="center"}
+
+## Compreensão básica de programação {background-image="Fundo_Palestra.png" .smaller .scrollable}
+
+De mero “usuário” para ...
+
+::: columns
+::: {.column width="25%"}
+**Variáveis:**
+
+```{r}
+#| echo: TRUE
+vetor1 <- c(2, 10)
+vetor2 <- "João"
+matriz <- matrix(1:4, nrow = 2)
+lista <- list(vetor1,
+vetor2, matriz)
+
+print(lista)
+```
+:::
+
+::: {.column width="30%"}
+**Operações Vetorizadas**
+
+```{r}
+#| echo: TRUE
+x <- c(10,20)
+y <- c(11,21)
+#Operação vetorizada
+z = x + y
+#Operação não vetorizada
+z1 <- integer(length(x))
+for (i in seq_along(z1) ){
+  z1[i] <- x[i] + y[i]
+}
+
+z; z1
+```
+:::
+:::{.column width="45%"}
+![](images/Usuario.jpg){fig-align="center"}
+:::
+::::
+
+##  {background-image="Fundo_Palestra.png".smaller .scrollable}
+
+De mero “usuário” para **desenvolvedor**.
+
+::::{.columns}
+:::{.column width="40%"}
+
+**Funções:** usando o operador **function()**.
+
+```{r}
+#| echo: TRUE
+# Definição de uma função em R
+minha_funcao <- function(x, y) {
+  resultado <- x + y
+  return(resultado)
+}
+
+# Chamando a função e armazenando o resultado em uma variável
+resultado <- minha_funcao(3, 5)
+print(resultado)  # Saída: 8
+```
+:::
+:::{.column width="60%"}
+![](images/Desenvolvedor.jpg){fig-align="center"}
+:::
+::::
+## Livros que podem ajudar
+
+![](images/Livros_programacaoR1.png){fig-align="center"}
+
+## Entendendo objetos no R
+
+![fonte:](images/R_objetos.png){fig-align="center"} Fonte: <https://rstudio-education.github.io/hopr/r-objects.html>
+
+## Entendendo estruturas de controle
+
+::::{.columns}
+:::{.column}
+
+![fonte:](images/Estrutura.jpg){fig-align="center"} 
+:::
+:::{.column}
+
+![fonte:](images/Estrutura1.jpg){fig-align="center"} 
+:::
+::::
+
+
+## Tirando dúvidas com a assistência chatGPT {.smaller .scrollable background-image="Fundo_Palestra.png"}
+
+**Usuário:** Olá, ChatGPT! Estou começando a aprender R e estou um pouco confuso com a diferença entre listas e vetores. Você pode me ajudar a entender melhor?
+
+**ChatGPT:** Claro! Em R, os vetores são estruturas de dados unidimensionais que podem conter elementos de um único tipo, enquanto as listas são estruturas que podem conter elementos de diferentes tipos e até outras listas. Posso te ajudar a criar exemplos para ilustrar isso.
+
+::: columns
+::: {.column width="30%"}
+Um exemplo de vetor:
+
+```{r}
+#| echo: true
+meu_vetor <- c(1, 2, 3, 4, 5)
+meu_vetor
+```
+:::
+
+::: {.column width="70%"}
+E um exemplo de lista:
+
+```{r}
+#| echo: true
+minha_lista <- list(nome = "João", idade = 25, notas = c(8, 7, 9))
+minha_lista
+```
+:::
+:::
+
+## Entendendo o Estilo funcional {.scrollable .smaller background-image="Fundo_Palestra.png"}
+
+::::{.columns}
+:::{.column}
+
+-   Decompor os componentes do problema em funções isoladas que operam de forma independente.
+
+-   Substituir **for** por funções (**lapply()**, **map()**) que recebem outra função como argumento.
+
+-   Funções que criam novas funções
+
+:::
+::: {.column}
+
+H. Wickham:
+
+- Os *loops* **for** têm uma má reputação no R...um *loop* transmite que você está iterando, mas não o que deve ser feito com os resultados .
+
+- Se você olha o *loop* **for** e NÃO encontra um funcional que corresponde à forma básica, deixe-o como um *loop* **for**!
+
+:::
+::::
+
+![](images/funcional.png){fig-align="center"} 
+
+## Substituindo "**for**" {.smaller .scrollable background-image="Fundo_Palestra.png"}
+
+::::{.columns}
+:::{.column}
+
+```{r}
+#| echo: true
+# Criando uma matriz de exemplo
+matriz <- matrix(1:9, nrow = 3)
+# for
+resultado_for <- numeric(length(matriz))
+for (i in seq_along(matriz)) {
+  resultado_for[i] <- matriz[i] ^ 2
+}
+# Exibindo os resultados
+print(resultado_for)
+```
+
+:::
+:::{.column}
+
+```{r}
+#| echo: true
+# apply
+resultado_apply <- as.vector(
+                     apply(matriz,
+                           MARGIN = c(1, 2),
+                           FUN = function(x) x^2))
+
+# map
+resultado_map <- purrr::map_dbl(matriz, ~ .x^2)
+
+# Exibindo os resultados
+print(resultado_apply)
+print(resultado_map)
+```
+:::
+::::
+![](images/Erro.png){fig-align="center"} 
+
+
+
+## Condicionando: {.scrollable background-image="Fundo_Palestra.png"}
+
+Quero elevar ao quadrado apenas os número pares.
+
+```{r}
+#| echo: true
+matriz <- matrix(1:9, nrow = 3)
+#Solução 1 - pedi para fazer com apply
+verificar_par <- function(x) {  x %% 2 == 0  }
+pares <- apply(matriz, MARGIN = 1:2,
+FUN = verificar_par)
+matriz_quadrados_pares <- matriz
+matriz_quadrados_pares[pares] <- matriz[pares] ^ 2
+
+#Solução 2 Forçando a barra com ChatGPT (apply + ifelse)
+matriz_quadrados_pares <- apply(matriz, MARGIN = c(1, 2), 
+FUN = function(x) ifelse(x %% 2 == 0, x^2, x))
+
+# Solução 3 ♥ Pedi que usasse ifelse
+matriz_quadrados_pares <- ifelse(matriz %% 2 == 0, matriz^2, matriz)
+```
+
+## Comparando eficiência... {.scrollable background-image="Fundo_Palestra.png"}
+
+```{r}
+#| echo: true
+matriz <- matrix(1:90000, nrow = 300)
+#Solução 1 - pedi para fazer com apply
+verificar_par <- function(x) {  x %% 2 == 0  }
+system.time({pares <- apply(matriz, MARGIN = 1:2,
+FUN = verificar_par)
+matriz_quadrados_pares <- matriz
+matriz_quadrados_pares[pares] <- matriz[pares] ^ 2})
+
+#Solução 2 Forçando a barra com ChatGPT (apply + ifelse)
+system.time({matriz_quadrados_pares <- apply(matriz, MARGIN = c(1, 2), 
+FUN = function(x) ifelse(x %% 2 == 0, x^2, x))})
+
+# Solução 3 ♥ Pedi que usasse ifelse
+system.time({matriz_quadrados_pares <- ifelse(matriz %% 2 == 0, matriz^2, matriz)})
+```
+
+
+## Fábricas de funções {.scrollable .smaller background-image="Fundo_Palestra.png"}
+
+::::{.columns}
+:::{.column width="60%"}
+Funções que criam funções:
+
+
+```{r}
+#| echo: TRUE
+# Função que retorna função p/ calcular a média ponderada
+criar_funcao_media_ponderada <- function(pesos) {
+  media_ponderada <- function(valores) {
+    resultado <- sum(valores * pesos) / sum(pesos)
+    return(resultado)  }
+  return(media_ponderada) }
+# Criar função com diferentes pesos
+media_ponderada_p1 <- criar_funcao_media_ponderada(c(0.3, 0.2))
+media_ponderada_p2 <- criar_funcao_media_ponderada(c(0.4, 0.4))
+valores <- c(10, 20) 
+# Calcular a média ponderada para valores:
+resultado1 <- media_ponderada_p1(valores)
+resultado2 <- media_ponderada_p2(valores)
+print(resultado1)  # Saída: 14
+print(resultado2)  # Saída: 15
+```
+:::
+:::{.column width="40%"}
+![](images/matruska.gif){fig-align="center"}
+:::
+::::
+
+## A eficiência mora nos detalhes {.smaller .scrollable background-image="Fundo_Palestra.png"}
+
+Não eficiente
+
+```{r}
+#| echo: true
+x <- matrix(1:40000,ncol=200)
+# MARGIN=2: corresponde a coluna
+system.time({ apply(x, 2, function(i) mean(i) / sd(x)) })
+```
+
+Eficiente
+
+```{r}
+#| echo: true
+x <- matrix(1:40000,ncol=200) # matriz 200x200
+sd_x = sd(x)
+system.time({apply(x, 2, function(i) mean(i) / sd_x) })
+```
+
+ChatGPT
+
+```{r}
+#| echo: true
+calculate_mean_divided_by_sd <- function(matrix_data) {
+  mean_values <- apply(matrix_data, 2, mean)
+  sd_value <- sd(matrix_data)
+  result <- mean_values / sd_value
+  return(result)
+}
+system.time({resultado <- calculate_mean_divided_by_sd(x)})
+```
+
+##  {.smaller background-image="Fundo_Palestra.png"}
+
+**Funções nativas**: apply(), lapply(), sapply(), tapply(), mapply(), ...ou purrr::map()
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: TRUE
+##| code-line-numbers: "|5"
+# Criando uma matriz de exemplo
+matriz <- matrix(1:9, nrow = 3)
+
+# Aplicando a função sum a cada coluna da matriz
+resultado <- apply(matriz, 2, sum)
+
+# Imprimindo a matriz
+matriz
+
+# Imprimindo o resultado
+print(resultado)  # Saída: 6 15 24
+```
+:::
+
+::: column
+```{r}
+#| echo: TRUE
+##| code-line-numbers: "|8|10"
+# Carregando o pacote purrr
+library(purrr)
+
+# Criando uma matriz de exemplo
+matriz <- matrix(1:9, nrow = 3)
+
+# Aplicando a função sum a cada coluna da matriz
+resultado1 <- map(as.data.frame(matriz), sum)
+
+resultado2 <- map_dbl(as.data.frame(matriz), sum)
+
+# Imprimindo os resultados
+print(resultado1)  # Saída: 6 15 24 na forma de lista
+print(resultado2)  # Saída: 6 15 24 na forma de vetor
+
+```
+:::
+:::
+
+## Solicitando ao ChatGPT {background-image="Fundo_Palestra.png"}
+
+**Use o R para criar uma matriz 3x3 e calcular a soma de suas colunas**
+
+```{r}
+#| echo: TRUE
+#| code-line-numbers: "|5"
+# Criar uma matriz 3x3
+matriz <- matrix(1:9, nrow = 3)
+
+# Calcular a soma das colunas
+soma_colunas <- colSums(matriz)
+
+# Exibir a matriz e a soma das colunas
+print(matriz)
+print(soma_colunas)
+```
+
+## Sendo crítico com a assistência ... {.smaller background-image="Fundo_Palestra.png"}
+
+::: columns
+::: column
+**Usuário:** Para que serve a função reduce()? Mostre-me algo realmente valioso.
+
+**ChatGPT:** A função reduce() é uma função disponível em diversos pacotes do R, incluindo o base, purrr e dplyr. É utilizada para combinar os elementos de uma lista, vetor ou data frame em um único valor, aplicando uma função iterativamente aos pares de elementos. Seu propósito principal é reduzir uma coleção de valores a um único valor, aplicando uma operação acumuladora iterativamente.
+
+```{r}
+#| echo: true
+numeros <- c(2, 3, 5, 7, 11)
+# Usando reduce para calcular o produto acumulado dos números
+produto_acumulado <- reduce(numeros, `*`)
+print(produto_acumulado)  # Saída: 2310
+```
+:::
+
+::: column
+**Usuário:** Mas a função prod() não faria isso diretamente?
+
+**ChatGPT:** Você está absolutamente correto. A função prod() do R já está projetada para calcular o produto de todos os elementos de um vetor ou lista. Portanto, para calcular o produto acumulado de uma lista de números, você pode usar diretamente a função prod() sem a necessidade da função reduce(). Aqui está como você poderia fazer isso:
+
+```{r}
+#| echo: true
+# Usando a função prod para calcular o produto acumulado dos elementos da lista
+produto_acumulado <- prod(numeros)
+print(produto_acumulado)  # Saída: 2310
+```
+:::
+:::
+
+##  {.smaller background-image="Fundo_Palestra.png"}
+
+::: columns
+::: {.column width="27%"}
+**Usuário:** Estou frustrada, seu exemplo não me apontou algo realmente valioso para se usar reduce(). Teria outro exemplo que não pudesse ser resolvido de forma mais direta?
+
+**ChatGPT:** Entendi, você está procurando por um exemplo mais genuinamente útil de reduce(), que não poderia ser facilmente replicado com outras funções embutidas mais diretas.
+:::
+
+::: {.column width="73%"}
+Imagine que você tenha uma lista de preços de produtos e queira calcular o preço total depois de aplicar um desconto a todos eles. O desconto pode ser uma operação mais complexa do que uma simples subtração. Nesse caso, reduce() poderia ser útil para aplicar o desconto iterativamente a cada preço e calcular o preço total.
+
+```{r}
+#| echo: true
+aplicar_desconto <- function(acc, preco) {
+# Suponha que o desconto seja de 10% para preços acima de 50 e 5% caso contrário
+  if (preco > 50) {
+    desconto <- preco * 0.1
+  } else {
+    desconto <- preco * 0.05
+  }
+  # Aplica o desconto ao preço atual e acumula o resultado
+  return(acc + (preco - desconto))
+}
+# reduce para calcular o preço total após aplicar o desconto a todos os produtos
+precos <- c(100, 50, 75, 120)
+preco_total <- purrr::reduce(precos, aplicar_desconto, .init = 0)
+print(preco_total)  # Saída: 313
+```
+:::
+:::
+
+## Facilidades {.smaller .scrollable background-image="Fundo_Palestra.png"}
+
+:::: columns
+::: {.column width="70%"}
+**Usuário:** Crie no R o gráfico da distribuição normal padrão, pintando a área sob a curva no intervalo -1 a 0.5. Adicione no eixo x os pontos -1 e 0.5. Inclua uma linha tracejada no sentido vertical passando pela origem. Coloque rótulos nos eixo x e y.
+
+**ChatGPT:**
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+library(ggplot2)
+x <- seq(-3, 3, 0.01) #vetor de valores no intervalo desejado
+y <- dnorm(x) #densidade de prob. para a dist. normal padrão
+df <- data.frame(x, y) # dataframe com os valores de x e y
+df_subset <- subset(df, x >= -1 & x <= 0.5) # Filtrar x em -1 a 0.5
+# Gráfico da distribuição normal padrão
+plot <- ggplot(df, aes(x, y)) +
+  geom_line() +
+  geom_ribbon(data = df_subset, aes(x = x, ymin = 0, ymax = y),
+fill = "blue", alpha = 0.5) +
+  geom_point(data = df_subset, aes(x = x, y = 0), color = "red", size = 3) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "green") +  
+  scale_x_continuous(breaks = c(-1, 0.5)) +
+  labs(x = "Valores de x", y = "Densidade de Probabilidade",
+title = "Distribuição Normal Padrão") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="30%"}
+```{r}
+# Exiba o gráfico
+print(plot)
+```
+:::
+::::
+
+## Dificuldades {.smaller .scrollable background-image="Fundo_Palestra.png"}
+
+**Usuário:** Ajude-me a resolver esse script, considerando que há nomes repetidos no data\$Autor, desse modo a nomeação do arquivo deve diferenciá-los mas no certificado deve ser o mesmo nome. Script fornecido:
+
+```{r}
+#| echo: true
+#| eval: false
+for (i in 1:nrow(data)) {
+name <- data$Autor[i]
+# Remove acentos
+name_clean <- iconv(name, from = "UTF-8", to = "ASCII//TRANSLIT")
+# Remove espaços e outros caracteres não alfanuméricos
+name_clean <- gsub("[^[:alnum:]]", "", name_clean)
+# Nome do arquivo de certificado
+output_file <- paste("Certif_Pal_2024", name_clean, ".pdf", sep = '')
+  ...}
+```
+
+**ChatGPT:** Entendi! Você pode adicionar um contador para diferenciar os nomes nos certificados.
+
+```{r}
+#| echo: true
+#| eval: false
+for (i in 1:nrow(data)) {
+  ...
+# Adicione um contador se o nome aparecer mais de uma vez
+if (name_counts[name] > 1) {
+  name_counter <- paste0("_", which(data$Autor == name)[1])
+  } else {
+    name_counter <- ""  }
+# Crie o nome do arquivo de certificado
+output_file <- paste("Certif_Pal_2024", name_clean, name_counter, ".pdf", sep = '') }
+```
+
+##  {.smaller .scrollable background-image="Fundo_Palestra.png"}
+
+::: columns
+::: {.column width="45%"}
+**Usuário:** Mas se tiver um nome 3 vezes, como será a numeração no output_file? Não tem que ter um contador para numerar cada vez que o nome aparece com número variando?
+
+**ChatGPT:** Você está absolutamente correto. Se um nome aparecer mais de uma vez, precisamos numerar cada ocorrência de forma distinta. Vamos corrigir isso:
+
+```{r}
+#| echo: true
+#| eval: false
+# Contador para diferenciar nomes repetidos
+  name_counter <- ""
+  if (sum(data$Autor == name) > 1) {
+    name_counter <- paste0("_",
+  which(data$Autor == name)[1])
+  }
+```
+
+**Usuário:** name_counter \<- paste0("\_", which(data\$Autor == name)\[1\]) precisa corrigir
+:::
+
+::: {.column width="55%"}
+**Usuário:** ... pois se houver vários nomes repetidos em quantidades distintas, name_counter não mudará e portanto somente um arquivo será gerado e não um para cada vez que o nome aparece.
+
+**ChatGPT:** Você está absolutamente certo. Podemos usar uma abordagem que conta quantas vezes o nome ocorreu anteriormente e adicionar 1 a esse contador.
+
+```{r}
+#| echo: true
+#| eval: false
+# Contador para diferenciar nomes repetidos
+  name_counter <- ""
+  if (sum(data$Autor == name) > 1) {
+    previous_count <- sum(data$Autor[1:(i-1)] == name)
+    name_counter <- paste0("_", previous_count + 1)
+  }
+```
+
+**Usuário:** Agora sim!
+:::
+:::
+
+## [Criando um aplicativo shiny]{style="color:blue;"} {.smaller .scrollable style="color: purple"}
+:::: columns
+::: {.column width="50%"}
+![](images/chatgpt_appshiny.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+
+
+
+![](images/app_exposicaomandala.png){fig-align="center"}
+:::
+::::
+Resultado em <https://lucianealcoforado.shinyapps.io/exposicao_mandala_2024/>
+
+## [Visão de Futuro]{style="color:white;"} {.smaller .scrollable background-image="images/ADA.png" style="color: purple"}
+
+
+
+A evolução do chatGPT parece promissora para auxiliar humanos no processo de desenvolvimento em R.
+
+""Desde o pioneirismo visionário de Ada Lovelace na programação, passando por uma gama de talentosos humanos que conceberam e impulsionaram novas linguagens de programação, até alcançarmos o ChatGPT de hoje, a inteligência artificial tem evoluído exponencialmente. Esta evolução trouxe uma ferramenta poderosa que, além de auxiliar desde iniciantes até profissionais avançados, desempenha um papel fundamental no avanço não apenas do R, mas também de diversas outras áreas do conhecimento.""
+
+`Ada Lovelace, matemática britânica do século XIX, pioneira em escrever o primeiro algoritmo destinado a ser processado pela Máquina Analítica de Charles Babbage.`
+
+## Referências {.smaller .scrollable}
+
+Livros Mencionados nesta apresentação
+
+Alcoforado, L.F. **Utilizando a Linguagem R**. 2021. URL = <https://altabooks.com.br/produto/utilizando-a-linguagem-r/>
+
+Alcoforado, L.F., Levy, A. **Visualização de dados com o software R**. 2017. URL = <http://www.estatisticacomr.uff.br/?page_id=21>
+
+Alcoforado, L.F. et al. **Aplicações em R : encurtando distâncias nas ciências**. 2024. DOI: <https://doi.org/10.11606/9786587023397>
+
+Alcoforado, L.F. et al. **Mandalas, curvas clássicas e visualização com R**. 2023. DOI: <https://doi.org/10.11606/9786587023335>
+
+Gillespie, C., Lovalace, R.**Efficient R programming**, 2021. URL = <https://csgillespie.github.io/efficientR/>
+
+
+Grolemund, G. **Hands-On Programming with R**. 2014. URL = <https://rstudio-education.github.io/hopr/>
+
+Kubrusly, J.Q. **Uma introdução à programação com o R**. 2022. URL = <https://www.eduff.com.br/produto/uma-introducao-a-programacao-com-o-r-e-book-pdf-759>
+
+Longo, O.C., Alcoforado, L.F.**Análise hierárquica de processos aplicado a problemas de engenharia civil: usando o pacote AHPWR**. 2023. URL = <https://drive.google.com/file/d/1TsuMr0ZyeqztqNoLDJex5Gn9kaLpi6dH/view>
+
+Peng, R.D. **R Programming for Data Science**. 2022. URL = <https://bookdown.org/rdpeng/rprogdatascience/>
+
+Wickham, H. **Advanced R**. 2019. URL =
+<https://adv-r.hadley.nz/index.html>
